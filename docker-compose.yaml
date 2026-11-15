@@ -21,6 +21,7 @@ services:
       - "80:80"
     depends_on:
       - catalogue
+      - user
   user:
     build: ./user
     image: joindevops/user:v1
