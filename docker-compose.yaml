@@ -1,24 +1,26 @@
+name: roboshop
+
 services:
   mongodb:
-    build: ./mongodb                ##build the container 
-    image: joindevops/mongodb:v1   ## docker build -t joindevops/mongodb:v1 
-    container_name: mongodb  ## docker run -d --network roboshop joindevops/mongodb:v1
+    build: ./mongodb
+    image: joindevops/mongodb:v1
+    container_name: mongodb
+
   catalogue:
-   build: ./catalogue
-   image: joindevops/catalogue:v1
-   container_name: catalogue
-   depends_on:
-    - mongodb
+    build: ./catalogue
+    image: joindevops/catalogue:v1
+    container_name: catalogue
+    depends_on:
+      - mongodb
+
   frontend:
-   build: ./frontend
-   image: joindevops/frontend:v1
-   container_name: frontend
-   port: 
-    -"80:80"
-   depends_on:
-    - catalogue    ## api/location edit like
-
-
+    build: ./frontend
+    image: joindevops/frontend:v1
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - catalogue
 
 networks:
   default:
