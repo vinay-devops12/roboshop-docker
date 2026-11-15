@@ -8,14 +8,15 @@ services:
    image: joindevops/catalogue:v1
    container_name: catalogue
    depends_on:
-   - mongodb
+    - mongodb
   frontend:
    build: ./frontend
    image: joindevops/frontend:v1
    container_name: frontend
-   port: "8080"
+   port: 
+    -"80:80"
    depends_on:
-   - catalogue    ## api/location edit like
+    - catalogue    ## api/location edit like
 
 
 
