@@ -94,12 +94,6 @@ services:
       - user
       - rabbitmq
 
-      
-
-
-
-
-
 networks:
   default:
     name: roboshop
